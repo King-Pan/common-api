@@ -1,0 +1,23 @@
+server:
+  port: 9000
+eureka:
+  instance:
+    hostname: localhost
+    status-page-url: http://localhost:${server.port}/actuator/info
+    lease-renewal-interval-in-seconds: 30 # 测试心跳时间间隔
+    lease-expiration-duration-in-seconds: 300 # 服务时效时间
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+spring:
+  application:
+    name: 客户标签库
+info:
+  app:
+    name: 客户标签库
+    version: v1.0.0
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,metrics

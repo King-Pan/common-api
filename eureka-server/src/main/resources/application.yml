@@ -1,0 +1,15 @@
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: localhost
+  server:
+    enable-self-preservation: false # 关闭eureka的自我保护机制，确保注册中心将不可以的服务剔除掉
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 8080
